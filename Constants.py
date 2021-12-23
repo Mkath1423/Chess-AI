@@ -18,6 +18,15 @@ class Pieces(Enum):
 class Players(Enum):
     WHITE = 'w'
     BLACK = 'b'
+
 class Positions(Enum):
     DEFAULT = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
     NONE = '8/8/8/8/8/8/8/8'
+
+class Communications(Enum):
+    RED_VALUE = '1'
+    GREEN_VALUE = '2'
+    BLUE_VALUE = '3'
+
+    RANKS = 2
+    FILES = 5

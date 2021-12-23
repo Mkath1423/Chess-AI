@@ -20,4 +20,5 @@ def index_to_uci(squares: tuple):
 
         return ['abcdefgh'[square[0]] + str(square[1] + 1) for square in squares]
 
-
+def uci_to_num(uci):
+    return 'abcdefgh'.index(uci[0].lower()) + (int(uci[1]) - 1) * 8

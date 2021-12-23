@@ -4,23 +4,24 @@ from pieces import *
 from utilis import *
 
 def main():
+    b = Board.fromfen('Q7/8/8/8/8/8/8/B6p')
+    print(b)
 
-    b = Board.fromfen(Constants.Positions.DEFAULT.value)
-    print(b.current_position)
+    moves = b.find_moves(b['a8'])
 
+    grid = [['.' for i in range(8)] for _ in range(8)]
 
-    # start_pos = tuple(uci_to_index('a3'))
-    # b.current_position[start_pos[0]][start_pos[1]] = 'q'
-    #
-    # p = Queen(Constants.Players.WHITE.value)
-    # p.current_position = start_pos
-    # possible_moves = p.find_moves(b)
-    #
-    # for location in possible_moves:
-    #     b.current_position[location[0]][location[1]] = 'o'
-    #
-    # print(b)
+    for move in moves:
+        grid[move[1] - 1][move[0] - 1] = 'o'
 
+    print('  A B C D E F G H')
+    for i, row in enumerate(grid[::-1]):
+        print(f'{i} ', end='')
+        for col in row:
+            print(f'{col} ', end="")
+        print('')
+
+    print(moves)
 
 if __name__ == '__main__':
     main()
